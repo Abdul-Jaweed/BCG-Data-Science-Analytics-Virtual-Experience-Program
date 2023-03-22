@@ -20,7 +20,7 @@ Your AD wants an email with your thoughts on how the team should go about testin
 
 The client plans to use the predictive model on the 1st working day of every month to indicate to which customers the 20% discount should be offered.
 
-****Mail to AD****
+**Mail to AD**
 
 
 Hi AD,
