@@ -41,3 +41,25 @@ Once we got all the data then we would perform eda and univariat, bivariate and 
 Regards,
 Abdul Jaweed
 
+
+
+## TASK - 2 | Exploratory Data Analysis
+
+Understanding the business through data
+
+### Here is the background information on your task
+
+
+The BCG project team thinks that building a churn model to understand whether price sensitivity is the largest driver of churn has potential. The client has sent over some data and the AD wants you to perform some exploratory data analysis.
+
+The data that was sent over includes:
+
+   - Historical customer data: Customer data such as usage, sign up date, forecasted usage etc
+   - Historical pricing data: variable and fixed pricing data etc
+   - Churn indicator: whether each customer has churned or not
+
+
+Please submit analysis in a code script, notebook, or PDF format. 
+
+Please note, there are multiple ways to approach the task and that the sample answer is just one way to do it.
+
