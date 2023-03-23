@@ -125,7 +125,7 @@ Verify the hypothesis of price sensitivity being to some extent correlated with 
 
 Prepare a half-page summary or slide of key findings and add some suggestions for data augmentation – which other sources of data should the client provide you with and which open source datasets might be useful?
 
-`Check EDA Notebook for more information`
+`Check EDA Notebook for more information` [Link](https://github.com/Abdul-Jaweed/BCG-Data-Science-Analytics-Virtual-Experience-Program/blob/main/TASK%20-%202%20%20Exploratory%20Data%20Analysis/BCG_TASK_2.ipynb)
 
 ### EDA Summary 
 
@@ -349,7 +349,7 @@ trees.
 
 
 
-`Check Feature Engineering and Model Building Notebook for more information`
+`Check Feature Engineering and Model Building Notebook for more information` [Link](https://github.com/Abdul-Jaweed/BCG-Data-Science-Analytics-Virtual-Experience-Program/blob/main/TASK%20-%203%20%20Feature%20Engineering%20%26%20Modelling/BCG_TASK_3.ipynb)
 
 
 ## TASK - 4 | Findings & Recommendations
