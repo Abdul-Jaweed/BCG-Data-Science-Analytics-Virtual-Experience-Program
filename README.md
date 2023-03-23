@@ -40,7 +40,8 @@ rates. We would need the following data to be able to build the models.
  - Customer churned or not data
 
 
-Once we got all the data then we would perform eda and univariat, bivariate and multivariate analysis and after that we perform feature engineering based on the data insight and then we split data into train and test to effectively evaluate the model's performance. And standardise the data and perform all Binary classification models for model prediction and find which model accuracy is better. Based on that we picked the model and we will be able to understand the direction and magnitude of the import of prices on customer churn rates, as well as the relative importance of affordable price in compared to other factors.
+Once we got all the data then we would perform eda and univariant, bivariate and multivariate analysis and after that we perform feature engineering based on the data insight and then we split data into train and test to effectively evaluate the model's performance. And standardize the data and perform all Binary classification models for model prediction and find which model accuracy is better. Based on that we picked the model and we will be able to understand the direction and magnitude of the import of prices on customer churn rates, as well as the relative importance of affordable price in compared to other factors.
+
 
 Regards,
 Abdul Jaweed
