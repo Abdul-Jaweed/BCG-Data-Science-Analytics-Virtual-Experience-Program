@@ -120,6 +120,20 @@ Verify the hypothesis of price sensitivity being to some extent correlated with 
 
 Prepare a half-page summary or slide of key findings and add some suggestions for data augmentation – which other sources of data should the client provide you with and which open source datasets might be useful?
 
-+++++++++Check EDA Notebook for more information++++++++++++
+`Check EDA Notebook for more information`
 
-# EDA Summary 
+### EDA Summary 
+
+#### Findings
+
+- Approximately 10% of customers have churned
+- Consumption data is highly skewed and must be treated before modelling
+- There are outliers present in the data and these must be treated before modelling
+- Price sensitivity has a low correlation with churn
+- Feature engineering will be vital, especially if we are to increase the predictive power of price sensitivity
+
+#### Suggestions
+
+- Competitor price data - perhaps a client is more likely to churn if a competitor has a good offer available?
+- Average Utilities prices across the country - if PowerCo’s prices are way above or below the country average, will a client be likely to churn?
+- Client feedback - a track record of any complaints, calls or feedback provided by the client to PowerCo might reveal if a client is likely to churn
