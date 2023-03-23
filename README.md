@@ -25,7 +25,9 @@ The client plans to use the predictive model on the 1st working day of every mon
 
 Hi AD,
 
-In order to perform hypothesis testing on customer churn or not on the bases of price and services, we would also need a model churn probabilities of customers, and we would derive the affordable price on churn rates.
+In order to test the hypothesis of whether churn is driven by the customers’ price sensitivity, we 
+would need to model churn probabilities of customers, and derive the effect of prices on churn 
+rates. We would need the following data to be able to build the models. 
 
 #### Dataset needed:
 
