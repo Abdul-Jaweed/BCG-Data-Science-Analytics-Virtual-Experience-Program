@@ -182,3 +182,208 @@ Now that you have a dataset of cleaned and engineered features, it is time to bu
 - Document the advantages and disadvantages of using the Random Forest for this use case.
 - Do you think that the model performance is satisfactory? Give justification for your answer.
 - (Bonus) - Relate the model performance to the client's financial performance with the introduction of the discount proposition. How much money could a client save with the use of the model? What assumptions did you make to come to this conclusion ?
+
+
+
+### Feature engineering
+
+Feature engineering or feature extraction or feature discovery is the process of using domain knowledge to extract features (characteristics, properties, attributes) from raw data. The motivation is to use these extra features to improve the quality of results from a machine learning process, compared with supplying only the raw data to the machine learning process.
+
+Feature engineering, in simple terms, is the act of converting raw observations into desired features using statistical or machine learning approaches. Few Best tools for feature engineering. Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set.
+
+#### Process
+
+**The feature engineering process is:**
+
+- Brainstorming or testing features
+- Deciding what features to create
+- Creating features
+- Testing the impact of the identified features on the task
+- Improving your features if needed
+- Repeat
+
+#### Typical engineered features
+
+**The following list provides some typical ways to engineer useful features:**
+
+- Numerical transformations (like taking fractions or scaling)
+- Category encoder like one-hot or target encoder (for categorical data)
+- Clustering
+- Group aggregated values
+- Principal component analysis (for numerical data)
+- Feature construction : building new "physical", knowledge-based parameters relevant to the problem. For example, in physics, construction of dimensionless numbers such as Reynolds number in fluid dynamics, Nusselt number in heat transfer, Archimedes number in sedimentation, construction of first approximations of the solution such as analytical strength of materials solutions in mechanics, etc
+
+#### Relevance
+
+Features vary in significance. Even relatively insignificant features may contribute to a model. Feature selection can reduce the number of features to prevent a model from becoming too specific to the training data set (overfitting).
+
+
+### Modelling
+
+We now have a dataset containing features that we have engineered and we are ready to start
+training a predictive model. Remember, we only need to focus on training a Random Forest
+classifier.
+
+#### Data sampling
+
+The first thing we want to do is split our dataset into training and test samples. The reason why
+we do this, is so that we can simulate a real life situation by generating predictions for our test
+sample, without showing the predictive model these data points. This gives us the ability to see
+how well our model is able to generalise to new data, which is critical.
+A typical % to dedicate to testing is between 20-30, for this example we will use a 75-25% split between train and test respectively.
+
+
+#### Model training
+
+Once again, we are using a Random Forest classifier in this example. A Random Forest sits
+within the category of ensemble algorithms because internally the Forest refers to a collection of
+Decision Trees which are tree-based learning algorithms. As the data scientist, you can control
+how large the forest is (that is, how many decision trees you want to include).
+The reason why an ensemble algorithm is powerful is because of the laws of averaging, weak learners
+and the central limit theorem. If we take a single decision tree and give it a sample of data and
+some parameters, it will learn patterns from the data. It may be overfit or it may be underfit, but
+that is now our only hope, that single algorithm.
+With ensemble methods, instead of banking on 1 single trained model, we can train 1000’s of
+decision trees, all using different splits of the data and learning different patterns. It would be like
+asking 1000 people to all learn how to code. You would end up with 1000 people with different
+answers, methods and styles! The weak learner notion applies here too, it has been found that if
+you train your learners not to overfit, but to learn weak patterns within the data and you have a lot
+of these weak learners, together they come together to form a highly predictive pool of knowledge!
+This is a real life application of many brains are better than 1.
+Now instead of relying on 1 single decision tree for prediction, the random forest puts it to the
+overall views of the entire collection of decision trees. Some ensemble algorithms using a voting
+approach to decide which prediction is best, others using averaging.
+
+As we increase the number of learners, the idea is that the random forest’s performance should
+converge to its best possible solution.
+
+Some additional advantages of the random forest classifier include:
+
+- The random forest uses a rule-based approach instead of a distance calculation and so features do not need to be scaled
+
+- It is able to handle non-linear parameters better than linear based models
+
+On the flip side, some disadvantages of the random forest classifier include:
+
+- The computational power needed to train a random forest on a large dataset is high, since we need to build a whole ensemble of estimators.
+
+- Training time can be longer due to the increased complexity and size of thee ensemble
+
+#### Evaluation
+
+Now let’s evaluate how well this trained model is able to predict the values of the test dataset.
+
+We are going to use 3 metrics to evaluate performance:
+
+- Accuracy = the ratio of correctly predicted observations to the total observations
+
+- Precision = the ability of the classifier to not label a negative sample as positive
+
+- Recall = the ability of the classifier to find all the positive samples
+
+The reason why we are using these three metrics is because a simple accuracy is not always a good
+measure to use. To give an example, let’s say you’re predicting heart failures with patients in a
+hospital and there were 100 patients out of 1000 that did have a heart failure.
+If you predicted 80 out of 100 (80%) of the patients that did have a heart failure correctly, you
+might think that you’ve done well! However, this also means that you predicted 20 wrong and
+what may the implications of predicting these remaining 20 patients wrong? Maybe they miss out
+on getting vital treatment to save their lives.
+As well as this, what about the impact of predicting negative cases as positive (people not having
+heart failure being predicted that they did), maybe a high number of false positives means that
+resources get used up on thee wrong people and a lot of time is wasted when they could have been
+helping the real heart failure sufferers.
+This is just an example, but it illustrates why other performance metrics are necessary such
+Precision and Recall, which are good measures to use in a classification scenario.
+
+Looking at these results there are a few things to point out:
+
+**Note:** If you are running this notebook yourself, you may get slightly different answers!
+
+-  Within the test set about 10% of the rows are churners (churn = 1).
+
+- Looking at the true negatives, we have 3282 out of 3286. This means that out of all the
+negative cases (churn = 0), we predicted 3282 as negative (hence the name True negative).
+This is great!
+
+- Looking at the false negatives, this is where we have predicted a client to not churn (churn
+= 0) when in fact they did churn (churn = 1). This number is quite high at 348, we want to
+get the false negatives to as close to 0 as we can, so this would need to be addressed when
+improving the model.
+
+- Looking at false positives, this is where we have predicted a client to churn when they actually
+didnt churn. For this value we can see there are 4 cases, which is great!
+
+- With the true positives, we can see that in total we have 366 clients that churned in the test
+dataset. However, we are only able to correctly identify 18 of those 366, which is very poor.
+
+- Looking at the accuracy score, this is very misleading! Hence the use of precision and recall
+is important. The accuracy score is high, but it does not tell us the whole story.
+
+- Looking at the precision score, this shows us a score of 0.82 which is not bad, but could be
+improved.
+
+- However, the recall shows us that the classifier has a very poor ability to identify positive
+samples. This would be the main concern for improving this model!
+
+So overall, we’re able to very accurately identify clients that do not churn, but we are not able
+to predict cases where clients do churn! What we are seeing is that a high % of clients are being
+identified as not churning when they should be identified as churning. This in turn tells me that
+the current set of features are not discriminative enough to clearly distinguish between churners
+and non-churners.
+
+A data scientist at this point would go back to feature engineering to try and create more predictive
+features. They may also experiment with optimising the parameters within the model to improve
+performance. For now, lets dive into understanding the model a little more.
+
+
+
+### Model understanding
+
+A simple way of understanding the results of a model is to look at feature importances. Feature
+importances indicate the importance of a feature within the predictive model, there are several
+ways to calculate feature importance, but with the Random Forest classifier, we’re able to extract
+feature importances using the built-in method on the trained model. In the Random Forest case,
+the feature importance represents the number of times each feature is used for splitting across all
+trees.
+
+
+
+`Check Feature Engineering and Model Building Notebook for more information`
+
+
+## TASK - 4 | Findings & Recommendations
+
+Presenting your results and giving recommended actions to the client
+
+### Here is the background information on your task
+
+The client wants a quick update on the project progress.
+
+The AD wants you to draft an abstract (executive summary) of your findings so far.
+
+#### Here is your task
+
+Develop an abstract slide synthesizing all the findings from the project so far, keeping in mind that this will be for the key stakeholders meeting which the Head of the SME division, as well as other various stakeholders, will be attending.
+
+
+### Executive Summary
+
+#### Situation : 
+
+- PowerCo has a problem with customer churn; they believe it is caused by customers’ price sensitivities. One possible solution is to provide 20% off to customers who are most likely to start leaving.
+
+
+#### Machine Learning Modeling : 
+
+- After Data cleaning, EDA and Feature engineering, I applied Random Forest Classifier. Random Forest Classifier. Random Forest Classifier model has been built to predict customers’ churn probability, achieving an accuracy of 0.90 and Precision score of 0.91 on test set.
+
+
+#### Insights :
+
+- 9.7% of the customers have churned and 90% of the customers have not churned.
+
+- Net margin on power subscription and consumption over 12 months is a top driver for churn.
+
+- Forecasted bill of meter rental for the next 2 months also is an influential driver.
+
+- Time seems to be an influential factor, especially the number of months they have been active, their tenure and the number of months since they updated their contract.
